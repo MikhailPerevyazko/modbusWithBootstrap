@@ -1,0 +1,40 @@
+#currentTimeDate {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size:medium;
+  margin-top: 0%;
+}
+
+#infoField {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size:medium;
+  margin-top: 0%;
+}
+
+.table {
+	width: 50%;
+	margin-bottom: 20px;
+	border: 1px solid brown;
+	border-collapse: collapse;
+  font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	background: lightgreen;
+	border: 1px solid black;
+  width: 15px;
+}
+
+.table td {
+	border: 1px solid blueviolet;
+	padding: 5px;
+}
+
+.table tbody tr:nth-child(odd){
+	background: darkgray;
+}
+
+.table tbody tr:nth-child(even){
+	background: #F7F7F7;
+}
