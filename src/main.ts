@@ -3,6 +3,7 @@
 
 class ParameterManager {
     parameters: {id1: number, id2: number, id3: number, id4: number, id5: number};
+    
     constructor() {
         this.parameters =  {
             id1: 100,
@@ -13,19 +14,19 @@ class ParameterManager {
         }
     }
 
-    getValueFromId(id: string) {
-        return this.parameters[id];
-    }
+    // getValueFromId(id: string) {
+    //     return this.parameters[id];
+    // }
 
-    setValueOnId(id: string, value: number) {
-        this.parameters[id] = value
-    }
+    // setValueOnId(id: string, value: number) {
+    //     this.parameters[id] = value
+    // }
 
-    fullUpdate() {
-        for (const key in this.parameters) {
-            this.parameters[key as keyof this.parameters] += 1;
-        }
-    }
+    // fullUpdate() {
+    //     for (const key in this.parameters) {
+    //         this.parameters[key as keyof this.parameters] += 1;
+    //     }
+    // }
 
     getTableFormat() {
         return {
@@ -36,25 +37,26 @@ class ParameterManager {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    setCurrentTime();
-    setInterval(setCurrentTime, 1000)
-    setInterval(updateTableAndInfoField, 1000);
+    // setCurrentTime();
+    setInterval(() => {
+        setCurrentTime();
+        updateTableAndInfoField();
+    }, 1000)
 })
 
 function setCurrentTime() {
   let now: Date = new Date();
-  let parsedNow: string = now.toString();
+  let parsedToStringNow: string = now.toString();
+  
+  let newNow: string = parsedToStringNow.substring(0, parsedToStringNow.length - 37);
   let timeField = document.getElementById('currentTimeDate');
-
+  
   if (timeField) {
-    timeField.textContent = parsedNow;
+    timeField.textContent = newNow;
   } else {
     console.log("Элемент не найден!")
   }
 }
-
-
-
 
 const manager: ParameterManager = new ParameterManager();
 let counter: number = 0;
