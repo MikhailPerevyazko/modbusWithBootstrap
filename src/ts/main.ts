@@ -3,6 +3,7 @@ import '../scss/styles.scss';
 import { ParameterManager } from "./parametersManager";
 
 
+
 function setCurrentTime() {
   let now: Date = new Date();
   let parsedToStringNow: string = now.toString();
