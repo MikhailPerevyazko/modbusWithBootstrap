@@ -1,11 +1,3 @@
-// use std::{
-//     collections::{BTreeMap, VecDeque},
-//     sync::{Arc, Mutex},
-// };
-
-// use log::error;
-// use rmodbus_client::ModBusClient;
-
 use rand::Rng;
 use serde_json::json;
 use std::collections::BTreeMap;
