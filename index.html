@@ -9,12 +9,35 @@
   </head>
 
   <body>
-    <div id="mainPage" class="">
+    <div id="mainPage">
       <div id="topField">
         <p id="currentTimeDate"></p>
         <p id="infoField"></p>
       </div>
-      <div id="table-container"></div>
+
+      <div class="container">
+        <div id="defaultTable">
+          <div id="firstTable"></div>
+          <div>
+            <p>Номер комплекта:</p>
+            <form class="mb-2">
+              <select id="number-select">
+                <option value="">Выбрать</option>
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+          </form>
+          <button id="drop-down-button">Выбрать</button>
+        <!-- </div> -->
+
+        <div id="selectedTable">
+          <div id="newTable"></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

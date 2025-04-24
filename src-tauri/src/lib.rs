@@ -13,10 +13,12 @@ use std::sync::{Arc, RwLock};
 use std::thread;
 use std::time::Duration;
 use tauri::Emitter;
+use std::sync::atomic::{AtomicBool, Ordering};
 
 struct SharedData {
     complect_number: Arc<RwLock<usize>>,
     data: Arc<RwLock<BTreeMap<usize, BTreeMap<usize, f32>>>>,
+    started: Arc<AtomicBool>
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -81,6 +83,7 @@ impl SharedData {
         SharedData {
             complect_number: Arc::new(RwLock::new(0)),
             data: Arc::new(RwLock::new(data)),
+            started: Arc::new(AtomicBool::new(false),)
         }
     }
 }
@@ -98,13 +101,17 @@ async fn start_worker(
     app: tauri::AppHandle,
     state: tauri::State<'_, SharedData>,
 ) -> Result<(), String> {
+    if state.started.load(Ordering::Relaxed){
+     return Ok(())
+    }
     // Клонируем Arc-ссылки из состояния
     let complect_num = Arc::clone(&state.complect_number);
     let data = Arc::clone(&state.data);
-
+    let started =state.started.clone();
     start_data_worker(
         complect_num,
         data,
+        started,
         Arc::new(app), // AppHandle в Arc для передачи в поток
     );
 
@@ -114,10 +121,12 @@ async fn start_worker(
 pub fn start_data_worker(
     complect_num: Arc<RwLock<usize>>,
     data: Arc<RwLock<BTreeMap<usize, BTreeMap<usize, f32>>>>,
+    started: Arc<AtomicBool>,
     app: Arc<tauri::AppHandle>,
 ) -> thread::JoinHandle<()> {
     thread::spawn(move || {
         let mut rng = rand::rng();
+        started.store(true, Ordering::Relaxed);
 
         loop {
             thread::sleep(Duration::from_secs(1));
