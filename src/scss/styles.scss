@@ -4,18 +4,19 @@
 	margin: 2px;
 }
 
-.container{
+.tableField{
 	display: flex;
 	flex-direction: row;
 	gap: 5px;
+	flex-wrap: nowrap;
 }
 
 #defaultTable, #selectedTable {
 	flex: 1;
-	padding: 1px;
+	padding: 10px;
 	margin-bottom: 15px;
+	margin-right: 5px;
 }
-
 
 #topField {
 	width: 300px;

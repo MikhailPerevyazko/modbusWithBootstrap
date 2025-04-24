@@ -4,18 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modbus App</title>
-    <!-- <link rel="stylesheet" href="/modbus/src/scss/styles.scss" /> -->
+    <link rel="stylesheet" href="/modbus/src/scss/styles.scss" />
     <script type="module" src="/src/ts/main.ts"></script>
   </head>
-
   <body>
+
     <div id="mainPage">
       <div id="topField">
         <p id="currentTimeDate"></p>
         <p id="infoField"></p>
       </div>
 
-      <div class="container">
+      <div id="tableField">
+        
         <div id="defaultTable">
           <div id="firstTable"></div>
           <div>
@@ -32,12 +33,13 @@
               </select>
           </form>
           <button id="drop-down-button">Выбрать</button>
-        <!-- </div> -->
 
         <div id="selectedTable">
           <div id="newTable"></div>
         </div>
+
       </div>
     </div>
+    
   </body>
 </html>
