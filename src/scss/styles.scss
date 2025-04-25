@@ -1,7 +1,8 @@
 @import "bootstrap/scss/bootstrap";
 
-#mainPage {
-	margin: 2px;
+body {
+	background-color: #5d7279;
+	margin: 10px;
 }
 
 .tableField{
@@ -9,13 +10,17 @@
 	flex-direction: row;
 	gap: 5px;
 	flex-wrap: nowrap;
+	margin: 2px;
 }
 
-#defaultTable, #selectedTable {
+#firstTable, #selectedTable, #newTable {
 	flex: 1;
 	padding: 10px;
 	margin-bottom: 15px;
 	margin-right: 5px;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: medium;
+	width: 120px;
 }
 
 #topField {
