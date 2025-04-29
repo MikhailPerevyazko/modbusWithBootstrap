@@ -1,19 +1,22 @@
 import "../scss/styles.scss";
 import { setCurrentTime } from "./currentTime";
-import { updateTableAndInfoField } from "./tableAndInfoField";
+import { updateInfoField } from "./tableInfoField";
 import { getTaskData } from "./getTaskFromDropDown";
 import { setupWorkerListener } from "./dataUpdate";
-
+import { counter, createParameterTable, manager, update } from "./table";
+ 
 
 function main() {
   document.addEventListener("DOMContentLoaded", () => {
-    setInterval(() => {
-      setCurrentTime();
-      updateTableAndInfoField();
-    }, 1000);
-
     setupWorkerListener();
     getTaskData();
+    const table = createParameterTable(manager)
+    
+    setInterval(() => {
+      setCurrentTime();
+      updateInfoField();
+      update(table, counter);
+    }, 1000);
   });
 }
 

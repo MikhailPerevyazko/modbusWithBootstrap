@@ -1,8 +1,6 @@
-import { createParameterTable , manager, counter  } from "./parametersManager";
+import { counter  } from "./table";
 
-export function updateTableAndInfoField() {
-    createParameterTable(manager, counter);
-    
+export function updateInfoField() {
     let infoUpdateField = document.getElementById("infoField");
     
     if (infoUpdateField) {
