@@ -1,8 +1,7 @@
 import { createParameterTable , manager, counter  } from "./parametersManager";
 
 export function updateTableAndInfoField() {
-    const tableHtml = createParameterTable(manager, counter);
-    document.getElementById('firstTable')!.innerHTML = tableHtml
+    createParameterTable(manager, counter);
     
     let infoUpdateField = document.getElementById("infoField");
     

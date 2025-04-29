@@ -9,7 +9,7 @@ use std::sync::atomic::{AtomicBool, Ordering};
 
 struct SharedData {
     complect_number: Arc<RwLock<usize>>,
-    data: Arc<RwLock<BTreeMap<usize, BTreeMap<usize, f32>>>>,
+    data: Arc<RwLock<BTreeMap<usize, BTreeMap<String, f32>>>>,
     started: Arc<AtomicBool>
 }
 
@@ -51,11 +51,11 @@ impl SharedData {
         for complect in 0..6 {
             let mut complect_data = BTreeMap::new();
             // Генерируем случайное количество элементов (1..30)
-            let item_count = rng.random_range(1..30);
+            let item_count = 30;
 
             // Заполняем случайными данными
-            for _ in 0..item_count {
-                let key = rng.random_range(0..1000);
+            for i in 0..item_count {
+                let key = format!("id {}",i+complect);
                 let value = rng.random_range(0.0..100.0);
                 complect_data.insert(key, value);
             }
@@ -103,7 +103,7 @@ async fn start_worker(
 
 pub fn start_data_worker(
     complect_num: Arc<RwLock<usize>>,
-    data: Arc<RwLock<BTreeMap<usize, BTreeMap<usize, f32>>>>,
+    data: Arc<RwLock<BTreeMap<usize, BTreeMap<String, f32>>>>,
     started: Arc<AtomicBool>,
     app: Arc<tauri::AppHandle>,
 ) -> thread::JoinHandle<()> {
