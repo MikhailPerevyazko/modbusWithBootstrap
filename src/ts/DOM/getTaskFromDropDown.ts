@@ -10,7 +10,8 @@ export function selectDropDownNumber() {
     return parsedSelectValue;
 }
 
-export function getTaskData() {
+// По нажатию кнопки выдать новый набор данных 
+export default function getTaskData() {
     let dropDownButton = document.getElementById('drop-down-button') as HTMLButtonElement;
     
     if (dropDownButton) {

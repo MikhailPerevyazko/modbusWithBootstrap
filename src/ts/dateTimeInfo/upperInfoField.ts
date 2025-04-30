@@ -1,4 +1,4 @@
-import { counter  } from "./table";
+import { counter } from "../tables/table";
 
 export function updateInfoField() {
     let infoUpdateField = document.getElementById("infoField");

@@ -1,4 +1,4 @@
-import { ParameterManager } from "./parametersManager";
+import { ParameterManager } from "../parameterManager/parametersManager";
 import { SimpleViewParameterTable } from "./simpleViewParameterTable";
 
 export const parameter_ids = [
@@ -8,9 +8,9 @@ export let counter: number = 0;
 export const manager: ParameterManager = new ParameterManager();
 
 let values = manager.getValues();
+const ids = manager.getIds();
 
-export function createParameterTable(manager: ParameterManager) {
-  const ids = manager.getIds();
+export function createParameterTable() {
   
   document.getElementById('firstTable')!.innerHTML = '';
   
@@ -33,7 +33,7 @@ export function createParameterTable(manager: ParameterManager) {
   return upperTable;
 }
 
-export async function update(table: SimpleViewParameterTable, iterator: number) {
+export function update(table: SimpleViewParameterTable, iterator: number) {
     parameter_ids.forEach((id, index) => {
         let value = values[index]
         table.setValue(id, value + iterator)

@@ -19,8 +19,11 @@ export function createTableFromData(data: DataUpdate) {
         "caption" : ["ID", "Описание", "Значение"]
     });
     
+    let message = 1;
     Object.entries(data.data).forEach(([id, value]) => {
-        tableBySelectedData.addParameter(id, value)
+        tableBySelectedData.addParameter(id, message);
+        tableBySelectedData.setValue(id, value)
+        message += 1;
     })
 }
 

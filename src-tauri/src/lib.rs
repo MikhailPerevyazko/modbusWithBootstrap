@@ -51,7 +51,7 @@ impl SharedData {
         for complect in 0..6 {
             let mut complect_data = BTreeMap::new();
             // Генерируем случайное количество элементов (1..30)
-            let item_count = 30;
+            let item_count = 15;
 
             // Заполняем случайными данными
             for i in 0..item_count {
