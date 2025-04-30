@@ -1,17 +1,19 @@
 import { ParameterManager } from "../parameterManager/parametersManager";
 import { SimpleViewParameterTable } from "./simpleViewParameterTable";
 
+
 export const parameter_ids = [
     "id1", "id2", "id3", "id4", "id5"
 ];
 export let counter: number = 0;
 export const manager: ParameterManager = new ParameterManager();
 
-let values = manager.getValues();
+
+const values = manager.getValues();
 const ids = manager.getIds();
 
-export function createParameterTable() {
-  
+
+export function createParameterTable() {  
   document.getElementById('firstTable')!.innerHTML = '';
   
   let div = document.getElementById("firstTable");
@@ -20,7 +22,7 @@ export function createParameterTable() {
   }
 
   const upperTable = new SimpleViewParameterTable(div, {
-    "colGroup" : ["14", "45"],
+    "colGroup" : ["10", "20", "30"],
     "caption" : ["ID", "Описание", "Значение"]
   });
 

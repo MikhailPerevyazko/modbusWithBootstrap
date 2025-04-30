@@ -15,7 +15,7 @@ export function createTableFromData(data: DataUpdate) {
       }
     
     const tableBySelectedData = new SimpleViewParameterTable(div, {
-        "colGroup" : ["14", "45", "45"],
+        "colGroup" : ["10", "20", "30"],
         "caption" : ["ID", "Описание", "Значение"]
     });
     

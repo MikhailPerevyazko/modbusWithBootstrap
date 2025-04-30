@@ -1,3 +1,3 @@
-import { start } from "./DOM/DOMmanipulation";
+import { run } from "./DOM/DOMmanipulation";
 
-start();
+run();
