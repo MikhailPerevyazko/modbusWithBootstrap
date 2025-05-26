@@ -8,7 +8,6 @@ export const parameter_ids = [
 export let counter: number = 0;
 export const manager: ParameterManager = new ParameterManager();
 
-
 const values = manager.getValues();
 const ids = manager.getIds();
 
@@ -26,7 +25,6 @@ export function createParameterTable() {
     "caption" : ["ID", "Описание", "Значение"]
   });
 
-
   ids.forEach((id, index) => {
     const value = values[index];
     upperTable.addParameter(id, value);
@@ -34,6 +32,7 @@ export function createParameterTable() {
   
   return upperTable;
 }
+
 
 export function update(table: SimpleViewParameterTable, iterator: number) {
     parameter_ids.forEach((id, index) => {

@@ -31,6 +31,7 @@ export const setupWorkerListener = async () => {
     const unlisten = await listen<DataUpdate>('new-data', (event) => {
         createTableFromData(event.payload);
     });
+    
     await invoke('start_worker');
     
     return unlisten;
