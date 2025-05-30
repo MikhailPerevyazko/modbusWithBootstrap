@@ -36,8 +36,8 @@ export function createParameterTable() {
 
 export function update(table: SimpleViewParameterTable, iterator: number) {
     parameter_ids.forEach((id, index) => {
-        let value = values[index]
-        table.setValue(id, value + iterator)
+        let value = values[index];
+        table.setValue(id, value + iterator);
     });
 
     counter += 1;

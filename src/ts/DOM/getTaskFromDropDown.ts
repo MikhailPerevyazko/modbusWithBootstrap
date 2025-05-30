@@ -23,3 +23,7 @@ export default function getTaskData() {
         console.error('Элемент с ID "drop-down-button" не найден!');
     }
 }
+
+export async function get() {
+    
+}
